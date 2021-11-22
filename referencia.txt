@@ -1,0 +1,22 @@
+Finlandia
+#51624F
+
+Hampton
+#E6D5AA
+
+Norway
+#AEBEA1
+
+Muddy Waters
+#B98853
+
+flaks ambient variables:
+
+set FLASK_APP=seeds.py
+set FLASK_DEBUG=1
+
+secret key = fb4834d44c51cbf8240e6ee1
+
+linear_logo:    https://i.ibb.co/5GSrjxp/linear-logo-seeds.png
+logo:           https://i.ibb.co/B6Pr7H0/logo-seeds.png
+favicon:        https://i.ibb.co/JyX9TRM/seeds-favicon.png

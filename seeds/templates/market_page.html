@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+Green Hub
+{% endblock %}
+{% block content %}
+<div class="row" style="margin-top:20px;margin-left:20px">
+   <div class="col-8">
+      <h2>Available Items on the Market</h2>
+      <br>
+      <table class="table table-hover table-striped">
+         <thead>
+            <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Name</th>
+               <th scope="col">Code</th>
+               <th scope="col">Price</th>
+               <th scope="col">Options</th>
+            </tr>
+         </thead>
+         <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for item in items %}
+            {% include 'includes/items_modals.html' %}
+            <tr>
+               <td>{{ item.id}}</td>
+               <td>{{ item.name}} seeds</td>
+               <td>{{ item.code}}</td>
+               <td>{{ item.price}}cc</td>
+               <td>
+                  <button class="btn btn-outline-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">More Info</button>
+                  <button class="btn btn-outline-success" data-toggle="modal" data-target="#Modal-PurchaseConfirm-{{ item.id }}">Purchase</button>
+               </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </div>
+   <div class="col-4">
+      <p1 style="font-weight: bold">Inventory</p1>
+      <br>
+      <div class="row">
+         {% for owned_item in owned_items %}
+         {% include 'includes/owned_items_modals.html' %}
+         <div class="col-md-6">
+            <style>
+               .card {
+                  background-color: #E6D5AA;
+               }
+            </style>
+            <div style="margin-bottom: 5px" class="card text-center">
+               <div class="card-body">
+                  <h5 class="card-title">{{owned_item.name}} seeds</h5>
+                  <button type="button" class="btn btn-warning" style="margin-bottom: 5px"
+                     data-toggle="modal" data-target="#Modal-SellingConfirm-{{ owned_item.id }}">
+                  Sell this Item
+                  </button>
+                  <p class="card-text"><strong>Value: {{ owned_item.price }} credits</strong></p>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</div>
+{% endblock %}
